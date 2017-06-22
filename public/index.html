@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Inventory Management by Airobotics</title>
+        <meta name="description" content="Inventory Management by Airobotics.">
+<!--        <link rel="stylesheet" href="main.css">-->
+
+        <script type="text/javascript">
+        window.onload = function() {
+            var x = document.getElementById("PileName");
+            // Here we get the list of all piles
+            for(i = 0; i < 8; i++){
+                var c = document.createElement("option");
+                c.text = i;
+                x.options.add(c, i);
+            }
+        }
+        
+         function PopulateDates() {
+            var x = document.getElementById("FlightTime");
+            while (x.options.length) {
+                x.remove(0);
+            }
+            
+             var pileID = document.getElementById("PileName");
+            var min = pileID.selectedIndex;
+            // Here we get the dates of all flights for the given flight and populate them 
+            for(i = min; i < min + 5; i++){
+                var c = document.createElement("option");
+                c.text = i;
+                x.options.add(c, i);
+            }
+        }   
+            function GetImage()
+            {
+//                TODO
+                var flightData = document.getElementById("FlightData");
+                flightData.innerHTML = "Volume: 111"
+            }
+        
+</script>
+
+    </head>
+    <body>
+        <h1>Inventory Management by Airobotics<br /><br /></h1>
+            <p><img src="C:\temp\MyPicSmall.jpg" alt="Selected Pile Image" width="287" height="287" />&nbsp;</p>
+            <div>
+                <h2>Pile Name</h2>
+                <select id="PileName" onchange="PopulateDates()">
+                </select>
+                <p>&nbsp;</p>
+            </div>
+            <div>
+                <h2>Flight Date &amp; Time</h2>
+                <select id="FlightTime" onchange="GetImage()">
+                </select>
+                <p>&nbsp;</p>
+            </div>
+            <div>
+            <label id="FlightData">volume</label>
+        </div>
+    </body>    
+</html>
